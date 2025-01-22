@@ -21,9 +21,6 @@ pub enum Instruction {
     NOP,
     PSP,
     SSP,
-    FLG,
-    CFLG,
-    SFLG,
     EQ,
     GT,
     LT,
@@ -45,7 +42,7 @@ impl Into<u8> for Instruction {
 
 impl From<u8> for Instruction {
     fn from(byte: u8) -> Self {
-        if byte > 31 {
+        if byte > 28 {
             panic!("Invalid instruction byte: {}", byte);
         }
         unsafe { transmute(byte) }

@@ -9,17 +9,17 @@ impl Memory {
 
     pub fn check_write(&self, addr: u16) {
         if addr > 32767 && addr < 62216 { return }
-        if addr > 65532 { return }
+        if addr > 65533 { return }
         if addr < 32768 {
             panic!("Attempted to write to ROM");
         }
-        if addr > 62215 && addr < 65533 {
+        if addr > 62215 && addr < 65534 {
             panic!("Attempted to write to unused memory");
         }
     }
 
     pub fn check_read(&self, addr: u16) {
-        if addr > 62215 && addr < 65533 {
+        if addr > 62215 && addr < 65534 {
             panic!("Attempted to read from unused memory");
         }
     }

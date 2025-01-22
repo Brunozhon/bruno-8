@@ -20,19 +20,16 @@
 | `0x0F` | NOP         |
 | `0x10` | PSP         |
 | `0x11` | SSP         |
-| `0x12` | FLG         |
-| `0x13` | CFLG        |
-| `0x14` | SFLG        |
-| `0x15` | EQ          |
-| `0x16` | GT          |
-| `0x17` | LT          |
-| `0x18` | GEQ         |
-| `0x19` | LEQ         |
-| `0x1A` | NEQ         |
-| `0x1B` | JMP         | 16-bit address   |
-| `0x1C` | JNZ         | 16-bit address   |
-| `0x1D` | JEZ         | 16-bit address   |
-| `0x1E` | IMS         | 8-bit immediate* |
-| `0x1F` | PTV         |
+| `0x12` | EQ          |
+| `0x13` | GT          |
+| `0x14` | LT          |
+| `0x15` | GEQ         |
+| `0x16` | LEQ         |
+| `0x17` | NEQ         |
+| `0x18` | JMP         | 16-bit address   |
+| `0x19` | JNZ         | 16-bit address   |
+| `0x1A` | JEZ         | 16-bit address   |
+| `0x1B` | IMS         | 8-bit immediate* |
+| `0x1C` | PTV         |
 
 *Immediates are unsigned integers.

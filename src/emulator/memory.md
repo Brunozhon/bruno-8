@@ -13,7 +13,6 @@ The Bruno-8 has 65535 bytes of memory.
 | `0xF302`-`0xF303` | Peripheral Port 2   |
 | `0xF304`-`0xF305` | Peripheral Port 3   |
 | `0xF306`-`0xF307` | Peripheral Port 4   |
-| `0xF308`-`0xFFFB` | Unused              |
-| `0xFFFC`          | Flags               |
+| `0xF308`-`0xFFFC` | Unused              |
 | `0xFFFD`          | Stack Pointer       | 
 | `0xFFFE`-`0xFFFF` | Program Counter     |
