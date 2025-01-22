@@ -31,8 +31,8 @@ impl Emulator {
             self.run_instruction();
 
             for i in 0..512 {
-                let x = i % 128 * 16;
-                let y = i / 128 * 16;
+                let x = i % 32 * 16;
+                let y = i / 32 * 16;
 
                 let color_num = self.memory.peek(61696 + i);
                 let r = (color_num & 0b11100000) >> 5;
