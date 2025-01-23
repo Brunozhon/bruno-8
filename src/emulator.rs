@@ -172,9 +172,6 @@ impl Emulator {
             Instruction::NOP => {}
             Instruction::PSP => {}
             Instruction::SSP => {}
-            Instruction::FLG => {}
-            Instruction::CFLG => {}
-            Instruction::SFLG => {}
             Instruction::EQ => {}
             Instruction::GT => {}
             Instruction::LT => {}

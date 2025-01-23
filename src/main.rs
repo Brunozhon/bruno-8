@@ -1,8 +1,8 @@
 use macroquad::window::request_new_screen_size;
-use crate::emulator::Emulator;
-use crate::emulator::instruction::Instruction;
+use crate::yay::lexer::Lexer;
 
 mod emulator;
+mod yay;
 
 #[cfg(test)]
 mod tests;
@@ -11,7 +11,12 @@ mod tests;
 async fn main() {
     request_new_screen_size(512.0, 256.0);
 
-    let mut code: Vec<u8> = Vec::new();
+    let source = "$1792".to_string();
+    let mut lexer = Lexer::new(source);
+
+    println!("{:?}", lexer.scan_token());
+
+    /*let mut code: Vec<u8> = Vec::new();
     code.push(Instruction::IMS.into());
     code.push(255);
     code.push(Instruction::POP.into());
@@ -22,5 +27,5 @@ async fn main() {
     code.push(5);
 
     let mut emulator = Emulator::new(code);
-    emulator.run().await;
+    emulator.run().await;*/
 }

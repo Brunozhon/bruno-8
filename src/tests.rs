@@ -1,5 +1,7 @@
 use crate::emulator::Emulator;
 use crate::emulator::instruction::Instruction;
+use crate::yay::lexer::Lexer;
+use crate::yay::token::{Token, TokenType};
 
 #[test]
 fn addition() {
@@ -75,6 +77,7 @@ fn xor() {
 
     assert_eq!(emulator.pop_stack(), 0);
 }
+
 #[test]
 fn and() {
     let mut code: Vec<u8> = Vec::new();
@@ -136,4 +139,15 @@ fn push_to_void() {
     emulator.run_unwindowed();
 
     assert_eq!(emulator.pop_stack(), 123);
+}
+
+#[test]
+fn lex_address() {
+    let mut lexer = Lexer::new(String::from("$1234"));
+    let token = lexer.scan_token();
+
+    assert_eq!(token.lexeme, String::from("$1234"));
+    assert_eq!(token.token_type, TokenType::ADDRESS);
+    assert_eq!(token.length, 5);
+    assert_eq!(token.line, 1);
 }
