@@ -44,6 +44,7 @@ impl Lexer {
         let c = self.advance();
 
         match c {
+            '.' => self.label(),
             '$' => self.memory_address(),
             _ => self.error_token("Unexpected character")
         }
@@ -63,5 +64,13 @@ impl Lexer {
         }
 
         self.make_token(TokenType::ADDRESS)
+    }
+
+    fn label(&mut self) -> Token {
+        while self.peek() >= 'a' && self.peek() <= 'z' && !self.is_at_end() {
+            self.advance();
+        }
+
+        self.make_token(TokenType::LABEL)
     }
 }

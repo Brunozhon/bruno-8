@@ -2,7 +2,7 @@ use crate::emulator::instruction::Instruction;
 use crate::emulator::memory::Memory;
 use macroquad::prelude::*;
 
-const DEBUG: bool = true;
+static DEBUG: bool = true;
 
 pub mod instruction;
 pub mod memory;

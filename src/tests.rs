@@ -1,7 +1,7 @@
 use crate::emulator::Emulator;
 use crate::emulator::instruction::Instruction;
 use crate::yay::lexer::Lexer;
-use crate::yay::token::{Token, TokenType};
+use crate::yay::token::TokenType;
 
 #[test]
 fn addition() {
@@ -149,5 +149,16 @@ fn lex_address() {
     assert_eq!(token.lexeme, String::from("$1234"));
     assert_eq!(token.token_type, TokenType::ADDRESS);
     assert_eq!(token.length, 5);
+    assert_eq!(token.line, 1);
+}
+
+#[test]
+fn lex_label() {
+    let mut lexer = Lexer::new(String::from(".label"));
+    let token = lexer.scan_token();
+
+    assert_eq!(token.lexeme, String::from(".label"));
+    assert_eq!(token.token_type, TokenType::LABEL);
+    assert_eq!(token.length, 6);
     assert_eq!(token.line, 1);
 }
