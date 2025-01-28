@@ -162,3 +162,14 @@ fn lex_label() {
     assert_eq!(token.length, 6);
     assert_eq!(token.line, 1);
 }
+
+#[test]
+fn lex_number() {
+    let mut lexer = Lexer::new(String::from("123"));
+    let token = lexer.scan_token();
+
+    assert_eq!(token.lexeme, String::from("123"));
+    assert_eq!(token.token_type, TokenType::NUMBER);
+    assert_eq!(token.length, 3);
+    assert_eq!(token.line, 1);
+}

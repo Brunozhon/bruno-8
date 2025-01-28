@@ -1,6 +1,6 @@
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum TokenType {
-    LABEL, ADDRESS, COMMAND, NUMBER, NEWLINE, ERROR, EOF
+    LABEL, ADDRESS, NUMBER, NEWLINE, ERROR, EOF
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]

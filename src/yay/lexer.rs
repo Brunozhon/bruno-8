@@ -46,6 +46,8 @@ impl Lexer {
         match c {
             '.' => self.label(),
             '$' => self.memory_address(),
+            '0'..='9' => self.number(),
+            '\n' => self.make_token(TokenType::NEWLINE),
             _ => self.error_token("Unexpected character")
         }
     }
@@ -56,6 +58,14 @@ impl Lexer {
 
     fn error_token(&self, message: &str) -> Token {
         Token::new(TokenType::ERROR, message.to_string(), self.line)
+    }
+
+    fn number(&mut self) -> Token {
+        while self.peek() >= '0' && self.peek() <= '9' && !self.is_at_end() {
+            self.advance();
+        }
+
+        self.make_token(TokenType::NUMBER)
     }
 
     fn memory_address(&mut self) -> Token {
