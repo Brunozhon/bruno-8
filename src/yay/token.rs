@@ -1,6 +1,45 @@
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum TokenType {
-    LABEL, ADDRESS, NUMBER, NEWLINE, ERROR, EOF
+    // Literals
+    LABEL,
+    ADDRESS,
+    NUMBER,
+
+    // Instructions
+    HLT,
+    ADD,
+    SUB,
+    MUL,
+    DIV,
+    PUSH,
+    POP,
+    AND,
+    NAND,
+    OR,
+    XOR,
+    NOR,
+    NOT,
+    INC,
+    DEC,
+    NOP,
+    PSP,
+    SSP,
+    EQ,
+    GT,
+    LT,
+    GEQ,
+    LEQ,
+    NEQ,
+    JMP,
+    JNZ,
+    JEZ,
+    IMS,
+    PTV,
+
+    // Miscellaneous
+    NEWLINE,
+    ERROR,
+    EOF
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]

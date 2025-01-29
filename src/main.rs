@@ -1,8 +1,9 @@
 use macroquad::window::request_new_screen_size;
 use crate::yay::lexer::Lexer;
 
-mod emulator;
-mod yay;
+pub mod emulator;
+pub mod yay;
+pub mod helpers;
 
 #[cfg(test)]
 mod tests;

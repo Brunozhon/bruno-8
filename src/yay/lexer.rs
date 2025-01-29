@@ -1,10 +1,20 @@
+use std::collections::HashMap;
+use lazy_static::lazy_static;
 use crate::yay::token::{Token, TokenType};
+use crate::map;
 
 pub struct Lexer {
     start: usize,
     current: usize,
     source: Vec<char>,
     line: isize
+}
+
+lazy_static! {
+    static ref TOKEN_FROM_STRING: HashMap<&'static str, TokenType> = map!{
+        "HLT" => TokenType::HLT,
+        "ADD" => TokenType::ADD
+    };
 }
 
 impl Lexer {
@@ -83,4 +93,6 @@ impl Lexer {
 
         self.make_token(TokenType::LABEL)
     }
+
+
 }
