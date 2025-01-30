@@ -18,7 +18,19 @@ lazy_static! {
         "mul" => TokenType::MUL,
         "div" => TokenType::DIV,
         "push" => TokenType::PUSH,
-        "pop" => TokenType::POP
+        "pop" => TokenType::POP,
+        "and" => TokenType::AND,
+        "nand" => TokenType::NAND,
+        "or" => TokenType::OR,
+        "xor" => TokenType::XOR,
+        "nor" => TokenType::NOR,
+        "not" => TokenType::NOT,
+        "inc" => TokenType::INC,
+        "dec" => TokenType::DEC,
+        "nop" => TokenType::NOP,
+        "psp" => TokenType::PSP,
+        "ssp" => TokenType::SSP,
+        "eq" => TokenType::EQ
     };
 }
 
