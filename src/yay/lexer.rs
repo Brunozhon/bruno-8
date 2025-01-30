@@ -12,8 +12,13 @@ pub struct Lexer {
 
 lazy_static! {
     static ref TOKEN_FROM_STRING: HashMap<&'static str, TokenType> = map!{
-        "HLT" => TokenType::HLT,
-        "ADD" => TokenType::ADD
+        "hlt" => TokenType::HLT,
+        "add" => TokenType::ADD,
+        "sub" => TokenType::SUB,
+        "mul" => TokenType::MUL,
+        "div" => TokenType::DIV,
+        "push" => TokenType::PUSH,
+        "pop" => TokenType::POP
     };
 }
 
@@ -58,6 +63,7 @@ impl Lexer {
             '$' => self.memory_address(),
             '0'..='9' => self.number(),
             '\n' => self.make_token(TokenType::NEWLINE),
+            'a'..='z' => self.instruction(),
             _ => self.error_token("Unexpected character")
         }
     }
@@ -94,5 +100,15 @@ impl Lexer {
         self.make_token(TokenType::LABEL)
     }
 
+    fn instruction(&mut self) -> Token {
+        while self.peek() >= 'a' && self.peek() <= 'z' && !self.is_at_end() {
+            self.advance();
+        }
 
+        if TOKEN_FROM_STRING.contains_key(self.source[self.start..self.current].iter().collect::<String>().as_str()) {
+            self.make_token(TOKEN_FROM_STRING[self.source[self.start..self.current].iter().collect::<String>().as_str()])
+        } else {
+            self.make_token(TokenType::SUB)
+        }
+    }
 }
