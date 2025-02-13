@@ -184,3 +184,14 @@ fn lex_instruction() {
     assert_eq!(token.length, 4);
     assert_eq!(token.line, 1);
 }
+
+#[test]
+fn skip_whitespace() {
+    let mut lexer = Lexer::new(String::from("\n"));
+    let token = lexer.scan_token();
+
+    assert_eq!(token.lexeme, String::from(""));
+    assert_eq!(token.token_type, TokenType::EOF);
+    assert_eq!(token.length, 0);
+    assert_eq!(token.line, 2);
+}
